@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,6 +10,37 @@
     <link rel="icon" href="./assets/icons/join-main-logo.png" type="image/png" />
   </head>
   <body onload="init()">
+    <div class="greeting-first-layer">
+      <div class="choose-role-popup">
+        <div class="welcome-text">
+          <h2>Welcome</h2>
+          <div class="separator"></div>
+          <p>Pick the option that suits your role: create a request as a stakeholder or log in if you’re part of the team.</p>
+        </div>
+        <div class="roles">
+          <div class="stake role">
+            <div class="role-content role-content-stake">
+              <div class="role-name">
+                <img src="./assets/icons/stakeholder.svg" alt="Stakeholder" />
+                <p>Are you a stakeholder?</p>
+              </div>
+              <button>Create request</button>
+            </div>
+            
+          </div>
+          <div class="team role">
+            <div class="role-content role-content-team">
+              <div class="role-name">
+                <img src="./assets/icons/member.svg" alt="Team" />
+                <p>Are you a team member?</p>
+              </div>
+              <button>Member log in</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="greeting">
       <img src="./assets/icons/join-logo-big.svg" class="greeting-logo" />
     </div>
@@ -31,7 +62,10 @@
           <div class="login-inputs">
             <div class="login-input-email">
               <input
-                oninput="removeErrorMsgs('error-email', 'email');removeErrorMsgs('wrong-email', 'password');"
+                oninput="
+                  removeErrorMsgs('error-email', 'email');
+                  removeErrorMsgs('wrong-email', 'password');
+                "
                 id="email"
                 class="email"
                 type="email"
@@ -44,7 +78,10 @@
             </div>
             <div class="login-input-pw">
               <input
-                oninput="removeErrorMsgs('error-password', 'password'); removeErrorMsgs('wrong-password', 'password');"
+                oninput="
+                  removeErrorMsgs('error-password', 'password');
+                  removeErrorMsgs('wrong-password', 'password');
+                "
                 id="password"
                 class="password"
                 type="password"
