@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts</title>
+    <link rel="stylesheet" href="./css/standard/standard.css" />
+    <link rel="stylesheet" href="./css/standard/navbar-header.css" />
+    <link rel="stylesheet" href="./css/contacts/add-contact.css">
+    <link rel="stylesheet" href="./css/contacts/add-contact-modal.css">
+    <link rel="stylesheet" href="./css/contacts/edit-contact-modal.css">
+    <link rel="stylesheet" href="./css/contacts/add-contact-resp.css">
+    <link rel="stylesheet" href="./css/contacts/add-contact-modal-resp.css">
+    <link rel="stylesheet" href="./css/contacts/edit-contact-modal-resp.css">
+    <link rel="icon" href="./assets/icons/join-main-logo.png" type="image/png">
+  </head>
+  <body onload="init()" onclick="closeSubMenu()">
+    <div class="log" id="log"></div>
+    <div class="log-edit" id="log-edit"></div>
+    <div class="log-delete" id="log-delete"></div>
+    <div class="overlay dp-none" id="overlay" onclick="closeAddContactModal();closeEditContactModal();"></div>
+    <div class="content">
+      <header class="header-general">
+        <p class="header-p">Kanban Project Management Tool</p>
+        <img class="frame-3-icon-header" src="./assets/icons/join-logo-blue.svg" alt="Join Logo" />
+        <div class="header-left">
+          <a href="./help.html" class="help-icon"><img src="./assets/icons/help.svg" alt="Go to Help Site" /></a>
+          <span id="initialLetter" class="header-icon light-blue" onclick="showSubMenuLoggedIn();preventBubbling(event)"></span>
+        </div>
+        <div id="subMenu" class="subMenu dp-none"></div>
+      </header>
+      <main class="main-contact">
+        <div class="modal-cont dp-none" id="modal-cont">
+          <div class="add-contact-modal">
+          <div class="add-contact-modal-header">
+            <div class="header-wrapper">
+            <img class="main-logo-modal" src="./assets/icons/join-main-logo.png" alt="Join Main Logo">
+            <img class="close-resp" onclick="closeAddContactModal()" src="./assets/icons/close-white.svg" alt="Close Button Responsive">
+            <h1 class="modal-title">Add contact</h1>
+            <h4 class="modal-subtitle">Tasks are better with a team!</h4>
+            <div class="separator-modal"></div>
+          </div>
+          </div>
+          <div class="add-contact-modal-content">
+            <img class="exit-modal-btn" id="exit-modal-btn" onclick="closeAddContactModal()" src="./assets/icons/cancel.svg" alt="Cancel Modal Icon">
+            <div class="main-modal-cont">
+            <img class="avatar-empty" src="./assets/icons/avatar-empty.svg" alt="Empty Avatar">
+            <div class="add-contact-modal-form">
+              <div class="input-name">
+              <input oninput="removeErrorMsgs('error-name', 'add-cont-name');removeErrorMsgs('error-name-exists', 'add-cont-name')" id="add-cont-name" type="text" placeholder="Name">
+              <img class="input-imgs name" src="./assets/icons/person.svg" alt="Name Icon">
+              <div class="error error-name red dp-none" id="error-name">Please enter a name</div>
+              <div class="error error-name red dp-none" id="error-name-exists">Contact already exists</div>
+            </div>
+            <div class="input-email">
+              <input oninput="removeErrorMsgs('error-email', 'add-cont-email');removeErrorMsgs('error-valid-email', 'add-cont-email');" id="add-cont-email" type="text" placeholder="Email">
+              <img class="input-imgs email" src="./assets/icons/mail.svg" alt="Email Icon">
+              <div class="error error-email red dp-none" id="error-email">Please enter an email</div>
+              <div class="error error-name red dp-none" id="error-valid-email">Please enter a valid email</div>
+            </div>
+            <div class="input-phone">
+              <input oninput="removeErrorMsgs('error-phone', 'add-cont-phone');removeErrorMsgs('error-valid-phone', 'add-cont-email');"id="add-cont-phone" type="text" placeholder="Phone">
+              <img class="input-imgs phone" src="./assets/icons/call.svg" alt="Phone Icon">
+              <div class="error error-phone red dp-none" id="error-phone">Please enter a phone number</div>
+              <div class="error error-name red dp-none" id="error-valid-phone">Please enter a valid phone number</div>
+            </div>
+            </div>
+          </div>
+            <div class="add-contact-modal-btns">
+              <div class="cancel btn" onclick="closeAddContactModal()" onmouseover="changeToBlueIcon()" onmouseout="changeToBlackIcon()">
+                <p>Cancel</p>
+              <img class="clear" id="clear" src="./assets/icons/cancel.svg" alt="Cancel White Icon">
+            <img class="clear-hover dp-none" id="clear-hover" src="./assets/icons/clear-hover.svg" alt=""></div>
+              <div class="create-contact btn" onclick="createContact()">
+                <p>Create contact</p>
+                <img src="./assets/icons/check-white.svg" alt="Check White Icon">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-edit-cont dp-none" id="modal-cont-edit">
+        <div class="edit-contact-modal">
+        <div class="edit-contact-modal-header">
+          <div class="edit-cont-header-wrapper">
+            <img class="close-resp" onclick="closeEditContactModal()" src="./assets/icons/close-white.svg" alt="Close Button Responsive">
+          <img class="main-logo-modal"src="./assets/icons/join-main-logo.png" alt="Join Main Logo">
+          <h1 class="edit-modal-title">Edit contact</h1>
+          <div class="separator-modal"></div>
+        </div>
+        </div>
+        <div class="edit-contact-modal-content">
+          <img class="exit-modal-btn" id="exit-modal-btn" onclick="closeEditContactModal()" src="./assets/icons/cancel.svg" alt="Cancel Modal Icon">
+          <div class="edit-main-modal-cont">
+            <div class="avatar-user" id="avatar-user" alt="Avatar User"></div>
+            <div class="edit-contact-modal-form">
+              <div class="edit-input-name">
+              <input  oninput="removeErrorMsgs('error-name-edit', 'edit-cont-name');removeErrorMsgs('error-name-exists-edit', 'edit-cont-name')" id="edit-cont-name" type="text" placeholder="Name">
+              <img class="input-imgs name" src="./assets/icons/person.svg" alt="Name Icon">
+              <div class="error error-name red dp-none" id="error-name-edit">Please enter a name</div>
+              <div class="error error-name red dp-none" id="error-name-exists-edit">Contact already exists</div>
+            </div>
+            <div class="edit-input-email">
+              <input oninput="removeErrorMsgs('error-email-edit', 'edit-cont-email');removeErrorMsgs('error-valid-email-edit', 'edit-cont-email');" id="edit-cont-email" type="text" placeholder="Email">
+              <img class="input-imgs email" src="./assets/icons/mail.svg" alt="Email Icon">
+              <div class="error error-email red dp-none" id="error-email-edit">Please enter an email</div>
+              <div class="error error-email red dp-none" id="error-valid-email-edit">Please enter a valid email</div>
+            </div>
+            <div class="edit-input-phone">
+              <input oninput="removeErrorMsgs('error-phone-edit', 'edit-cont-phone');removeErrorMsgs('error-valid-phone-edit', 'edit-cont-email');" id="edit-cont-phone" type="text" placeholder="Phone">
+              <img class="input-imgs phone" src="./assets/icons/call.svg" alt="Phone Icon">
+              <div class="error error-phone red dp-none" id="error-phone-edit">Please enter a phone number</div>
+              <div class="error error-phone red dp-none" id="error-valid-phone-edit">Please enter a valid phone number</div>
+            </div>
+            </div>
+        </div>
+          <div class="edit-contact-modal-btns" id="edit-contact-modal-btns">
+          </div>
+        </div>
+      </div>
+    </div>
+        <nav class="frame-3">
+          <img
+            class="frame-3-icon"
+            src="./assets/icons/join-main-logo.png"
+            alt="Join Logo"
+          />
+          <div class="frame-3-menu">
+            <a href="dashboard.html"><div class="menu-btns">
+              <img
+                class="menu-icon"
+                src="./assets/icons/icon-summary.png"
+                alt="icon-summary"
+              />
+              <p>Summary</p>
+            </div></a>
+            <a href="add-task.html"><div class="menu-btns">
+              <img
+                class="menu-icon"
+                src="./assets/icons/icon-add-task.png"
+                alt="icon-add-task"
+              />
+              <p>Add Task</p>
+            </div></a>
+            <a href="board.html"><div class="menu-btns">
+              <img
+                class="menu-icon"
+                src="./assets/icons/icon-board.png"
+                alt="icon-board"
+              />
+              <p>Board</p>
+            </div></a>
+            <a href="contacts.html"><div class="menu-btns" id="menu-btn-contacts">
+              <img
+                class="menu-icon"
+                src="./assets/icons/icon-contacts.png"
+                alt="icon-contacts"
+              />
+              <p>Contacts</p>
+            </div>
+          </div></a>
+          <div class="frame-22">
+            <a href="privacy-policy.html"><p class="frame-22-btns">Privacy Policy</p></a>
+            <a href="legal-notice.html"><p class="frame-22-btns">Legal Notice</p></a>
+          </div>
+        </nav>
+        <div class="contact-main">
+        <div class="contact-list-container">
+          <div class="add-contact-btn" onclick="openAddContactModal()">
+            <p class="add-contact-btn-text">Add new contact</p>
+          <img src="./assets/icons/person_add.svg" alt="Add New Contact Button Icon">
+        </div>
+          <div class="contacts" id="contacts">
+          </div>
+        </div>
+        <div class="contact-display-container" id="contact-display-container" onclick="closeEditMenu()">
+          <div class="container">
+           
+            <div class="contact-display-header"> 
+              <div class="cont-header">
+                <h1 class="contact-disp-title">Contacts</h1>
+              <div class="contact-disp-separator"></div>
+              <p class="contact-disp-subtitle">Better with a team</p>
+            </div>
+            <img class="resp-close-icon" onclick="hideContactDetailsFloating()" src="./assets/icons/arrow-left-line.png" alt="Left Arrow Back Icon">
+          </div>
+            <div class="contact-display-contact-data" id="contact-display-contact-data"></div>
+          </div>
+        </div>
+      </div>
+      </main>
+      <footer class="footer-resp">
+        <a href="dashboard.html"><div class="menu-btns-resp">
+          <img class="menu-btn-icon-resp"  src="./assets/icons/icon-summary.png" alt="Summary button icon">
+          <p>Summary</p>
+        </div></a>
+        <a href="board.html"><div class="menu-btns-resp">            
+          <img class="menu-btn-icon-resp" src="./assets/icons/icon-board.png" alt="Board button icon">
+          <p>Board</p></div></a>
+        <a href="add-task.html"><div class="menu-btns-resp">            
+          <img class="menu-btn-icon-resp"  src="./assets/icons/icon-add-task.png" alt="Add task button icon">
+          <p>Add Tasks</p></div></a>
+        <a href="contacts.html"><div class="menu-btns-resp" id="menu-btn-resp-contacts">            
+          <img class="menu-btn-icon-resp"  src="./assets/icons/icon-contacts.png" alt="Contacts button icon">
+          <p>Contacts</p>
+        </div></a>
+      </footer>
+    </div>
+    <script src="./js/global.js"></script>
+    <script src="./js/contacts/contacts.js"></script>
+    <script src="./js/contacts/add-new-contact.js"></script>
+    <script src="./js/contacts/edit-contact.js"></script>
+    <script src="./templates/contacts/contacts-template.js"></script>
+    <script src="./js/navbar.js"></script>
+  </body>
+</html>

@@ -1,0 +1,220 @@
+@media (max-width: 1200px) {
+  .edit-contact-modal {
+    width: 850px;
+    height: 500px;
+  }
+  .edit-contact-modal-header {
+    width: 40%;
+  }
+  .edit-contact-modal-content {
+    width: 60%;
+  }
+  .avatar-user {
+    width: 80px;
+    height: 80px;
+    font-size: 28px;
+  }
+  .edit-contact-modal-form input {
+    width: 300px;
+    height: 40px;
+  }
+  .edit-contact-modal-form {
+    width: 300px;
+  }
+
+  .modal-title {
+    font-size: 45px;
+  }
+  .exit-modal-btn {
+    right: 50px;
+  }
+  .edit-input-name,
+  .edit-input-phone,
+  .edit-input-email {
+    height: 57px;
+    width: 300px;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-logo-modal {
+    display: none;
+  }
+  .close-resp {
+    display: block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 30px;
+    right: 30px;
+  }
+  .close-resp:hover {
+    cursor: pointer;
+  }
+  .edit-contact-modal {
+    flex-direction: column;
+    width: 630px;
+    height: 600px;
+    align-items: center;
+    /* position: relative; */
+  }
+  .edit-contact-modal-header {
+    width: 100%;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0px;
+    height: 45%;
+  }
+  .delete,
+  .save-contact {
+    height: 50px;
+    width: 170px;
+    font-size: 16px;
+  }
+
+  .edit-main-modal-cont {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .avatar-user {
+    position: absolute;
+    z-index: 3;
+    top: -40px;
+  }
+  .exit-modal-btn {
+    display: none;
+  }
+  .edit-contact-modal-content {
+    gap: 20px;
+  }
+  .edit-contact-modal-form input::placeholder {
+    font-size: 16px;
+  }
+  .edit-contact-modal-form input {
+    font-size: 16px;
+  }
+  .edit-main-modal-cont {
+    margin-top: 20px;
+  }
+  .edit-contact-modal-btns {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .edit-contact-modal {
+    width: 530px;
+  }
+  .name,
+  .email,
+  .phone {
+    right: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .edit-contact-modal {
+    width: 430px;
+  }
+  .edit-contact-modal-form input::placeholder {
+    font-size: 16px;
+  }
+  .edit-contact-modal-form input {
+    font-size: 16px;
+  }
+  .delete,
+  .save-contact {
+    height: 40px;
+    width: 120px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .edit-contact-modal {
+    width: 330px;
+    height: 550px;
+  }
+  .delete,
+  .save-contact {
+    height: 30px;
+    width: 100px;
+    font-size: 16px;
+  }
+  .name,
+  .email,
+  .phone {
+    right: 15px;
+    top: 5px;
+  }
+  .edit-input-name,
+  .edit-input-phone,
+  .edit-input-email {
+    height: 57px;
+    width: 250px;
+  }
+  .input-imgs {
+    height: 23px;
+    width: 23px;
+  }
+
+  .edit-contact-modal-form input {
+    width: 250px;
+    height: 30px;
+  }
+  .edit-modal-title {
+    font-size: 32px;
+  }
+
+  .edit-contact-modal-form {
+    width: 80%;
+    align-items: center;
+    gap: 0px;
+  }
+  .edit-contact-modal-form input::placeholder {
+    font-size: 16px;
+  }
+  .edit-contact-modal-form input {
+    font-size: 16px;
+  }
+  .edited-contact-msg {
+    width: 230px;
+    height: 60px;
+    font-size: 16px;
+  }
+  .edit-contact-modal-btns {
+    margin-bottom: 40px;
+  }
+  .avatar-user {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (max-width: 400px) {
+  .edit-contact-modal {
+    width: 300px;
+    height: 500px;
+  }
+  .create-contact {
+    height: 40px;
+    width: 170px;
+    font-size: 16px;
+  }
+  .edit-main-modal-cont {
+    padding-bottom: 10px;
+  }
+  .input-imgs {
+    height: 20px;
+    width: 20px;
+  }
+  .name,
+  .email,
+  .phone {
+    right: 10px;
+  }
+  .edit-contact-modal-form input::placeholder {
+    font-size: 16px;
+  }
+  .edit-contact-modal-form input {
+    font-size: 16px;
+  }
+}

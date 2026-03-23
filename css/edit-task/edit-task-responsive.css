@@ -1,0 +1,100 @@
+@media (max-width: 1200px) {
+  #edit-subtask-list {
+    width: 350px !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .card-details-content {
+    height: 500px;
+    width: 300px;
+    padding: 12px 12px 0 12px;
+  }
+
+  .card-details-content p {
+    font-size: 16px;
+  }
+
+  .prio-btn {
+    width: 120px !important;
+  }
+
+  .priority-btn-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .task-title {
+    font-size: 28px;
+  }
+
+  .edit-input {
+    width: 245px;
+  }
+
+  .edit-form {
+    width: 250px;
+  }
+
+
+  .edit-textarea {
+    width: 245px;
+  }
+
+  .card-overlay-header-flex-right {
+    width: 100%;
+  }
+
+  .selection {
+    width: 245px;
+  }
+
+  .prio-btn {
+    width: 75px;
+    font-size: 16px;
+  }
+
+  .contact-list-name {
+    font-size: 16px !important;
+  }
+
+  .avatar-card-edit {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .subtask {
+    width: 245px;
+    font-size: 16px !important;
+  }
+
+  .edit-cancel-task-img,
+  .edit-accept-task-img,
+  .edit-small-separator {
+    top: 50px;
+  }
+
+  .edit-add-subtask-img {
+    top: 55px;
+  }
+
+  .subtask-list-item li {
+    font-size: 16px !important;
+  }
+
+  .edit-input-subtask-overlay {
+    font-size: 16px !important;
+    width: 180px !important;
+  }
+
+  .subtask-title {
+    width: 175px !important;
+  }
+  #edit-subtask-list {
+    width: 250px !important;
+  }
+  .change-input input {
+    width: 70% !important;
+  }
+}
