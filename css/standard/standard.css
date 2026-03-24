@@ -5,15 +5,14 @@
 
 @font-face {
   font-family: "Open Sans";
-  src: url(../assets/fonts/Open_Sans/static/OpenSans-Regular.ttf);
-} 
+  src: url(../../assets/fonts/Open_Sans/static/OpenSans-Regular.ttf);
+}
 
 * {
   scroll-behavior: smooth;
   box-sizing: border-box;
   margin: 0;
   text-decoration: none;
-
 }
 
 html,
