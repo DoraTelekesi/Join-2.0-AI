@@ -1,0 +1,73 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url(../assets/fonts/Open_Sans/static/OpenSans-Regular.ttf);
+}
+
+body {
+  background-color: white;
+  font-family: "Open Sans", sans-serif;
+  color: #42526e;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+header > img {
+  width: 45px;
+  height: 55px;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.header-bottom {
+  color: #29abe2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 60px 0px 60px;
+}
+
+.used-requests,
+.total-requests {
+  font-weight: 700;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stake-content {
+  display: flex;
+  gap: 70px;
+  padding: 30px 50px 0px 50px;
+}
+
+.stake-img {
+  width: 410px;
+  height: 280px;
+}
+.stake-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  text-align: justify;
+}
+
+.create-email-request-btn {
+  background-color: #29abe2;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
