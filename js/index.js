@@ -201,3 +201,9 @@ window.addEventListener("load", () => {
     greeting.classList.add("hide");
   }, 1300);
 });
+
+
+function revealLogin() {
+  const memberLogin = document.getElementById("choose-role");
+  memberLogin.classList.add("hide");
+}

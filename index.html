@@ -10,7 +10,7 @@
     <link rel="icon" href="./assets/icons/join-main-logo.png" type="image/png" />
   </head>
   <body onload="init()">
-    <div class="greeting-first-layer">
+    <div id="choose-role" class="greeting-first-layer">
       <div class="choose-role-popup">
         <div class="welcome-text">
           <h2>Welcome</h2>
@@ -33,7 +33,7 @@
                 <img src="./assets/icons/member.svg" alt="Team" />
                 <p>Are you a team member?</p>
               </div>
-              <button>Member log in</button>
+              <button onclick="revealLogin()" id="reveal-login">Member log in</button>
             </div>
           </div>
         </div>

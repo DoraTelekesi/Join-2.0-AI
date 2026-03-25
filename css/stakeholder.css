@@ -6,13 +6,20 @@
 body {
   background-color: white;
   font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   color: #42526e;
+  height: 100vh;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 header {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 20px 20px 0px 20px;
 }
 header > img {
   width: 45px;
@@ -70,4 +77,19 @@ main {
   border-radius: 8px;
   cursor: pointer;
   color: white;
+}
+
+.footer-stakeholder {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.footer-stakeholder > a {
+  text-decoration: none;
+  color: #a8a8a8;
+}
+.footer-stakeholder > a:hover {
+  color: #29abe2;
+  font-weight: 700;
 }
