@@ -1,4 +1,6 @@
 let selectedColumn = "triage";
+let user = "";
+let isMember = false;
 
 /**
  * Initializes the application by loading contacts, tasks, and user info.
@@ -9,6 +11,7 @@ async function init() {
   await showLoggedInInfo();
   selectPrio("medium");
   highlightMenuActual();
+  checkIfMember();
 }
 
 /**
@@ -18,8 +21,10 @@ async function showLoggedInInfo() {
   const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
   if (loginInfo.isGuest === true) {
     document.getElementById("initialLetter").innerHTML = "G";
+    user = "Guest";
   } else {
     document.getElementById("initialLetter").innerHTML = loginInfo.userLoggedIn.avatar;
+    user = loginInfo.userLoggedIn.name;
   }
 }
 
@@ -178,7 +183,16 @@ function createTaskObject(id) {
     priority: selectedPrio,
     subtasks: getSubtasks(),
     title: getTitleInput(),
+    creator: user,
   };
+}
+
+function checkIfMember() {
+  if(tasksArr.some((task) => task.creator === user)){
+    isMember = true;
+  } else {
+    isMember = false;
+  }
 }
 
 /**
@@ -321,11 +335,8 @@ function areInputsEmpty() {
     today = new Date();
   today.setHours(0, 0, 0, 0);
   [e, p, t("required-date")].forEach((el) => el.classList.add("dp-none"));
-  if (!v) e.classList.remove("dp-none"), t("required-date").classList.remove("dp-none"), (i = true);
+  if (!v) (e.classList.remove("dp-none"), t("required-date").classList.remove("dp-none"), (i = true));
   else if (new Date(v) < today)
-    p.classList.remove("dp-none"),
-      t("required-date").classList.remove("dp-none"),
-      (d.style.border = "1px solid red"),
-      (i = true);
+    (p.classList.remove("dp-none"), t("required-date").classList.remove("dp-none"), (d.style.border = "1px solid red"), (i = true));
   return i;
 }

@@ -207,6 +207,13 @@
   font-size: 18px;
 }
 
+.task-creator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
 .task-date {
   margin-bottom: 12px;
 }

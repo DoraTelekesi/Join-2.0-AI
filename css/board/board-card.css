@@ -106,3 +106,13 @@ li {
   width: 24px;
   height: 24px;
 }
+
+.member-card {
+  background-color: #92ffbc;
+  padding: 2px;
+}
+
+.extern-card {
+  background-color: #ebfc88;
+  padding: 2px;
+}

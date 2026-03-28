@@ -7,9 +7,7 @@
  */
 function cardTemplate(element, contacts) {
   return `
-    <div class="card-s grab" draggable="true" ondragstart="startDragging(${element.id})" onclick="cardDetails(${
-    element.id
-  })">
+    <div class="card-s grab" draggable="true" ondragstart="startDragging(${element.id})" onclick="cardDetails(${element.id})">
       <div class="card-s-header">
         <div class="category-card-s" style="background-color: ${getCategoryColor(element.category)}">
           ${element.category}
@@ -62,6 +60,9 @@ function getCardDetailsTemplate(task, initialsHTML) {
       </div>
       <h2 class="task-title">${task.title}</h2>
       <p class="task-description">${task.description}</p>
+      <p class="task-creator">Creator: <span class=${isMember ? "member-card" : "extern-card"}>
+        <img src="./assets/icons/${isMember ? "member-card" : "extern-card"}.svg" alt="Member Icon"> 
+        <span class="is-member">${isMember ? "Member" : "Extern"}</span> </span>${task.creator}</p>
       <p class="task-date">Due Date: ${task.date}</p>
       <div class="flex-priority">
         <p class="task-priority">Priority: ${task.priority}</p>
@@ -80,16 +81,14 @@ function getCardDetailsTemplate(task, initialsHTML) {
   onclick="updateSubtaskStatus('${task.id}', '${st.title}', ${index})" class="edit-checkbox"> 
             <p class="card-overlay-subtask-title">${st.title}</p>
           </li>
-        `
+        `,
             )
             .join("") || "<li>No Subtasks</li>"
         }
       </ul>
     </div>
     <div class="task-overlay-footer">
-      <div class="contact-change edit-icon" onclick="editTask(${
-        task.id
-      })"  onmouseover="changeToBlueIconEdit()" onmouseout="changeToBlackIconEdit()">
+      <div class="contact-change edit-icon" onclick="editTask(${task.id})"  onmouseover="changeToBlueIconEdit()" onmouseout="changeToBlackIconEdit()">
         <img id="edit-icon-n" class="icon" src="./assets/icons/edit.svg" alt="Edit Icon Normal">
         <img id="edit-icon-b" class="dp-none icon" src="./assets/icons/edit-blue.svg" alt="Edit Icon Hover">
         <p>Edit</p>
