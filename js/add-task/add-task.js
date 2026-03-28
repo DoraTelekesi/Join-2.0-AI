@@ -1,4 +1,4 @@
-let selectedColumn = "to-do";
+let selectedColumn = "triage";
 
 /**
  * Initializes the application by loading contacts, tasks, and user info.

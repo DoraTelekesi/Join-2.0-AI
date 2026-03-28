@@ -152,9 +152,7 @@ function searchTaskTitles() {
   const taskNotFoundElement = document.getElementById("task-not-found");
   filteredTasks =
     searchValue.length > 2
-      ? tasksArr.filter((task) =>
-          [task.title, task.description].some((field) => field?.toLowerCase().includes(searchValue))
-        )
+      ? tasksArr.filter((task) => [task.title, task.description].some((field) => field?.toLowerCase().includes(searchValue)))
       : [];
   updateHTML();
   const noTasksFound = filteredTasks.length === 0;
@@ -178,10 +176,22 @@ async function showLoggedInInfo() {
  * Updates the HTML content for all task columns.
  */
 function updateHTML() {
+  renderTriage();
   renderToDo();
   renderInProgress();
   renderAwaitFeedback();
   renderDone();
+}
+
+function renderTriage() {
+  let actualTriageList = filteredTasks.length > 0 ? filteredTasks : tasksArr;
+  let triage = actualTriageList.filter((t) => t["column"] == "triage");
+  document.getElementById("triage").innerHTML = "";
+  for (let i = 0; i < triage.length; i++) {
+    const element = triage[i];
+    document.getElementById("triage").innerHTML += cardTemplate(element, contacts);
+  }
+  checkForEmptyColumn(triage, "Triage", "triage");
 }
 
 /**
@@ -268,7 +278,7 @@ function selectColumnForTask(column) {
     let regex2 = /add-/;
     selectedColumn = column.replace(regex2, "");
   } else {
-    selectedColumn = "to-do";
+    selectedColumn = "triage";
   }
   return selectedColumn;
 }
