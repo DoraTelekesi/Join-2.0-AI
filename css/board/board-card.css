@@ -109,10 +109,18 @@ li {
 
 .member-card {
   background-color: #92ffbc;
-  padding: 2px;
+  padding: 4px;
+  border-radius: 10%;
 }
 
 .extern-card {
   background-color: #ebfc88;
-  padding: 2px;
+  padding: 4px;
+  border-radius: 10%;
+}
+
+.ai-generated-ticket {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

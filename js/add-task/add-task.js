@@ -11,7 +11,7 @@ async function init() {
   await showLoggedInInfo();
   selectPrio("medium");
   highlightMenuActual();
-  checkIfMember();
+  console.log(contacts)
 }
 
 /**
@@ -24,7 +24,7 @@ async function showLoggedInInfo() {
     user = "Guest";
   } else {
     document.getElementById("initialLetter").innerHTML = loginInfo.userLoggedIn.avatar;
-    user = loginInfo.userLoggedIn.name;
+    user = loginInfo.userLoggedIn;
   }
 }
 
@@ -183,15 +183,15 @@ function createTaskObject(id) {
     priority: selectedPrio,
     subtasks: getSubtasks(),
     title: getTitleInput(),
-    creator: user,
+    creatorName: user.name,
   };
 }
 
-function checkIfMember() {
-  if(tasksArr.some((task) => task.creator === user)){
-    isMember = true;
+function checkIfMember(name) {
+  if (contacts.some((contact) => contact.name === name)) {
+    return true;
   } else {
-    isMember = false;
+    return false;
   }
 }
 

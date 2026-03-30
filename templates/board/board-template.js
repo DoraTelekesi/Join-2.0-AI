@@ -56,13 +56,19 @@ function getCardDetailsTemplate(task, initialsHTML) {
     <div class="card-main-content">
       <div class="card-overlay-header-flex">
         <p class="category-card-s">${task.category}</p>
+        <div class="ai-generated-ticket">
+        <img src="./assets/icons/wand_stars.svg" alt="AI Icon">
+        <div>
+        <p>Ai-generated ticket</p>
+        </div>
+        </div>
         <img onclick="closeCardDetails()" class="add-task-close-btn-overlay" src="./assets/icons/cancel.svg" alt="">
       </div>
       <h2 class="task-title">${task.title}</h2>
       <p class="task-description">${task.description}</p>
-      <p class="task-creator">Creator: <span class=${isMember ? "member-card" : "extern-card"}>
-        <img src="./assets/icons/${isMember ? "member-card" : "extern-card"}.svg" alt="Member Icon"> 
-        <span class="is-member">${isMember ? "Member" : "Extern"}</span> </span>${task.creator}</p>
+      <p class="task-creator">Creator: <span class=${checkIfMember(task.creatorName) ? "member-card" : "extern-card"}>
+        <img src="./assets/icons/${checkIfMember(task.creatorName) ? "member-card" : "extern"}.svg" alt="Member Icon"> 
+        <span class="is-member">${checkIfMember(task.creatorName) ? "Member" : "Extern"}</span> </span>${task.creatorName}</p>
       <p class="task-date">Due Date: ${task.date}</p>
       <div class="flex-priority">
         <p class="task-priority">Priority: ${task.priority}</p>
