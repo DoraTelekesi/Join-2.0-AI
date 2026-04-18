@@ -32,8 +32,25 @@
     width: 75px;
     height: 75px;
   }
-}
 
+  .roles {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .role-content {
+    align-items: center;
+  }
+
+  .choose-role-popup {
+    height: 70%;
+  }
+
+  .welcome-text {
+    text-align: center;
+  }
+}
 @media (max-width: 700px) {
   .join-header-logo {
     width: 70px;
@@ -79,12 +96,20 @@
   .mail-img {
     top: 12px;
   }
+
+  .welcome-text p {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 600px) {
   .login-window {
     width: 460px;
     height: 390px;
+  }
+
+  .choose-role-popup {
+    padding: 60px;
   }
 }
 
@@ -140,6 +165,25 @@
   }
   .login-inputs {
     gap: 0px;
+  }
+  .welcome-text p {
+    font-size: 17px;
+  }
+
+  .role-content-stake > button,
+  .role-content-team > button {
+    padding: 10px 15px;
+    font-size: 16px;
+  }
+
+  .welcome-text p {
+    font-size: 16px;
+  }
+
+  .choose-role-popup {
+    padding: 20px;
+    width: 90%;
+    height: 70%;
   }
 }
 
