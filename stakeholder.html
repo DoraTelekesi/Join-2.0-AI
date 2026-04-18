@@ -11,14 +11,21 @@
     <header>
       <img src="./assets/img/join-logo-stakeholder.svg" alt="Join Logo" />
       <div class="header-bottom">
-        <a href="./index.html"><img src="./assets/icons/arrow-left-line.svg" alt="Navigate Back" /></a>
+        <div class="welcome-text-resp-container">
+          <h1 class="welcome-text-resp">Welcome</h1>
+          <a class="nav-back-btn-resp" href="./index.html">
+            <img src="./assets/icons/arrow-left-line.svg" alt="Navigate Back" />
+          </a>
+        </div>
+
+        <a class="nav-back-btn" href="./index.html"><img src="./assets/icons/arrow-left-line.svg" alt="Navigate Back" /></a>
         <p id="usage-data">
           <span class="used-requests" id="used-requests"></span> of <span class="total-requests" id="total-requests">10</span> requests used today
         </p>
       </div>
     </header>
     <main>
-      <h1>Welcome</h1>
+      <h1 class="welcome-text">Welcome</h1>
       <p class="stakeholder-loading-msg" id="stakeholder-loading-msg" role="status" aria-live="polite">Loading usage…</p>
       <div class="stake-content" id="stake-content-root" aria-hidden="true">
         <div class="stake-text">

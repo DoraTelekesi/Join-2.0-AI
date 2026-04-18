@@ -5,7 +5,8 @@
     gap: 20px;
     padding: 0px;
   }
-  .join-header-logo {
+  .join-header-logo,
+  .join-header-logo-white-resp {
     width: 90px;
     height: 90px;
   }
@@ -28,7 +29,8 @@
 }
 
 @media (max-width: 900px) {
-  .join-header-logo {
+  .join-header-logo,
+  .join-header-logo-white-resp {
     width: 75px;
     height: 75px;
   }
@@ -52,7 +54,8 @@
   }
 }
 @media (max-width: 700px) {
-  .join-header-logo {
+  .join-header-logo,
+  .join-header-logo-white-resp {
     width: 70px;
     height: 70px;
   }
@@ -114,6 +117,14 @@
 }
 
 @media (max-width: 500px) {
+  body {
+    background-color: #2a3647;
+  }
+
+  .greeting {
+    background-color: #2a3647;
+  }
+
   .header-login {
     display: none;
   }
@@ -184,6 +195,16 @@
     padding: 20px;
     width: 90%;
     height: 70%;
+    margin-top: 130px;
+  }
+  .greeting-logo-white-resp,
+  .join-header-logo-white-resp {
+    display: block;
+  }
+
+  .greeting-logo,
+  .join-header-logo {
+    display: none;
   }
 }
 

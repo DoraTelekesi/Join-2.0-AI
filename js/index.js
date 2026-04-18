@@ -185,8 +185,9 @@ function goToSummary() {
 
 window.addEventListener("load", () => {
   const greeting = document.querySelector(".greeting");
-  const logo = document.querySelector(".greeting-logo");
-  const targetLogo = document.querySelector(".join-header-logo");
+  const useWhiteLogos = window.matchMedia("(max-width: 500px)").matches;
+  const logo = document.querySelector(useWhiteLogos ? ".greeting-logo-white-resp" : ".greeting-logo");
+  const targetLogo = document.querySelector(useWhiteLogos ? ".join-header-logo-white-resp" : ".join-header-logo");
   const targetRect = targetLogo.getBoundingClientRect();
   const logoRect = logo.getBoundingClientRect();
   const deltaX = targetRect.left + targetRect.width / 2 - (logoRect.left + logoRect.width / 2);

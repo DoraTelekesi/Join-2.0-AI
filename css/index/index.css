@@ -22,10 +22,19 @@ h1 {
   background-color: #f6f7f8;
 }
 
-.join-header-logo {
-  position: absolute;
+.join-header-logo,
+.join-header-logo-white-resp {
   left: 60px;
   top: 40px;
+}
+
+.join-header-logo {
+  position: absolute;
+}
+
+.join-header-logo-white-resp {
+  position: fixed;
+  z-index: 9999;
 }
 .footer-login-signup {
   display: none;
@@ -254,11 +263,12 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 10000;
   transition: opacity 0.5s ease;
 }
 
-.greeting-logo {
+.greeting-logo,
+.greeting-logo-white-resp {
   width: 150px;
   position: absolute;
   transition:
@@ -375,5 +385,10 @@ button {
 }
 
 .hide {
+  display: none;
+}
+
+.greeting-logo-white-resp,
+.join-header-logo-white-resp {
   display: none;
 }
