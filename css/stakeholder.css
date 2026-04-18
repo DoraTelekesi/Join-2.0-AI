@@ -135,3 +135,95 @@ body.stakeholder-loading .stake-content {
   color: #29abe2;
   font-weight: 700;
 }
+
+#stake-img-resp {
+  display: none;
+}
+
+#usage-data {
+  margin: 0px;
+}
+
+.limit-text {
+  font-size: 18px;
+}
+
+@media (max-width: 850px) {
+  #stake-img-resp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+    height: 55%;
+  }
+  #stake-img {
+    display: none;
+  }
+
+  .stake-content {
+    padding: 0px 50px 0px 50px;
+  }
+
+  #stake-text-content p:nth-of-type(1) {
+    margin-top: 3px;
+  }
+
+  h1 {
+    font-size: 35px;
+  }
+
+  .stake-text {
+    align-items: center;
+    gap: 0px;
+  }
+
+  .stake-text-title {
+    font-size: 20px;
+  }
+
+  #create-email-request-btn-text {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 750px) {
+  .stake-text-title {
+    font-size: 18px;
+  }
+
+  .create-email-request-btn {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  h1 {
+    font-size: 30px;
+  }
+  .stake-text-title {
+    font-size: 16px;
+  }
+  .header-bottom {
+    padding: 10px 20px 0px 20px;
+  }
+  #stake-text-content p {
+    font-size: 15px;
+  }
+  #create-email-request-btn-text {
+    margin: 8px;
+  }
+  .limit-title {
+    font-size: 16px;
+  }
+
+  .stake-text-content > p.limit-text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .stake-content {
+    padding: 10px 30px 10px 30px;
+  }
+}

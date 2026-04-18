@@ -57,11 +57,13 @@ function updateUsageHTMLColor(usageData) {
 function updateStakePage() {
   if (limitReached) {
     document.getElementById("stake-img").src = "./assets/img/board-stake-limit-reached.png";
-    document.getElementById("stake-text-title").innerHTML = "<h5 style='padding: 20px 15px; margin: 0;'>The daily 10-request limit has been reached.</h5>";
+    document.getElementById("stake-img-resp").src = "./assets/img/board-stake-limit-reached.png";
+    document.getElementById("stake-text-title").innerHTML =
+      "<h5 class='limit-title' style='padding: 20px 15px; margin: 0;'>The daily 10-request limit has been reached.</h5>";
     document.getElementById("stake-text-title").style.backgroundColor = "#FFD2D285";
     document.getElementById("stake-text-title").style.borderRadius = "10px";
     document.getElementById("stake-text-content").innerHTML =
-      "<p style='font-size: 18px;'>Need more? No worries — you can still send emails, but our team will review them manually instead of using AI to create tickets.</p>";
+      "<p class='limit-text'>Need more? No worries — you can still send emails, but our team will review them manually instead of using AI to create tickets.</p>";
     document.getElementById("create-email-request-btn-text").textContent = "Send an email";
   }
 }
