@@ -56,7 +56,7 @@ function getCardDetailsTemplate(task, initialsHTML) {
     <div class="card-main-content">
       <div class="card-overlay-header-flex">
         <p class="category-card-s">${task.category}</p>
-        <div class="ai-generated-ticket">
+        <div  class=${checkIfMember(task.creatorName) ? "hide-ai-generated-ticket" : "show-ai-generated-ticket "}>
         <img src="./assets/icons/wand_stars.svg" alt="AI Icon">
         <div>
         <p>Ai-generated ticket</p>

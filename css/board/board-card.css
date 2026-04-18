@@ -119,7 +119,11 @@ li {
   border-radius: 10%;
 }
 
-.ai-generated-ticket {
+
+.hide-ai-generated-ticket {
+  display: none;
+}
+.show-ai-generated-ticket {
   display: flex;
   align-items: center;
   gap: 10px;

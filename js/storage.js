@@ -41,6 +41,7 @@ let taskList = {
     description: "Build start page with recipe recommendation.",
     date: "2025-10-06",
     priority: "medium",
+    creatorName: "Sofia Müller",
     assigned_to: {
       0: "Dora Telekesi",
       1: "Eva Braun",
@@ -59,6 +60,7 @@ let taskList = {
     description: "Define CSS naming conventions and structure.",
     date: "2025-05-06",
     priority: "urgent",
+    creatorName: "Magyar Peter",
     assigned_to: {
       0: "Noah Velickovic",
     },
@@ -75,6 +77,7 @@ let taskList = {
     description: "Create reusable HTML base templates for basic structure.",
     date: "2025-07-06",
     priority: "low",
+    creatorName: "Dora Telekesi",
     assigned_to: {
       0: "Noah Velickovic",
       1: "Dora Telekesi",
@@ -89,6 +92,7 @@ let taskList = {
     description: "Implement daily recipe and portion calculator.",
     date: "2025-11-06",
     priority: "low",
+    creatorName: "Noah Velickovic",
     assigned_to: {
       1: "Noah Velickovic",
     },
@@ -97,11 +101,18 @@ let taskList = {
   },
 };
 
+let usage = {
+  dailyAiRequestsUsed: 0,
+  dailyAiRequestsLimit: 10,
+  lastResetDate: "2026-04-18",
+};
+
 function initStorage() {
   // console.log("hex");
   // putData(`users`, users);
-  putData("contactList", contactList);
-  putData("taskList", taskList);
+
+  //putData("taskList", taskList);
+  putData("usage", usage);
 }
 
 // const BASE_URL =

@@ -56,9 +56,7 @@ function generateAssignedToHTML(assignedTo) {
  * @param {string} subtaskTitle - The title of the subtask to update.
  */
 async function updateSubtaskStatus(taskId, subtaskTitle, index) {
-  const response = await fetch(
-    `https://join-2-41ee1-default-rtdb.europe-west1.firebasedatabase.app/taskList/${taskId}.json`
-  );
+  const response = await fetch(`https://join-2-41ee1-default-rtdb.europe-west1.firebasedatabase.app/taskList/${taskId}.json`);
   const task = await response.json();
   const subtask = task.subtasks.find((st) => st.title === subtaskTitle);
   if (subtask) {
@@ -79,6 +77,7 @@ async function updateSubtaskStatus(taskId, subtaskTitle, index) {
  * @returns {string} The sanitized string.
  */
 function sanitizeId(str) {
+  console.log(str);
   return str.replace(/[^a-zA-Z0-9-_]/g, "-");
 }
 
@@ -91,10 +90,10 @@ let taskToDelete = null;
  */
 function updateCheckboxSubtask(subtask, subtaskStatus, index) {
   const sanitizedId = `checkbox-subtask-${sanitizeId(subtask.title)}-${index}`;
+  console.log(sanitizedId);
   const checkbox = document.getElementById(sanitizedId);
   if (checkbox) {
-    checkbox.src =
-      subtaskStatus === "done" ? "./assets/icons/btn-checked-blue.svg" : "./assets/icons/btn-unchecked.svg";
+    checkbox.src = subtaskStatus === "done" ? "./assets/icons/btn-checked-blue.svg" : "./assets/icons/btn-unchecked.svg";
   }
 }
 
