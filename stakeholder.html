@@ -7,39 +7,46 @@
 
     <link rel="stylesheet" href="./css/stakeholder.css" />
   </head>
-  <body onload="initStakeholder()">
+  <body class="stakeholder-loading" onload="initStakeholder()">
     <header>
       <img src="./assets/img/join-logo-stakeholder.svg" alt="Join Logo" />
       <div class="header-bottom">
         <a href="./index.html"><img src="./assets/icons/arrow-left-line.svg" alt="Navigate Back" /></a>
-        <p>
+        <p id="usage-data">
           <span class="used-requests" id="used-requests"></span> of <span class="total-requests" id="total-requests">10</span> requests used today
         </p>
       </div>
     </header>
     <main>
       <h1>Welcome</h1>
-      <div class="stake-content">
+      <p class="stakeholder-loading-msg" id="stakeholder-loading-msg" role="status" aria-live="polite">Loading usage…</p>
+      <div class="stake-content" id="stake-content-root" aria-hidden="true">
         <div class="stake-text">
-          <h2>Easily create a ticket by sending an email — no extra steps needed.</h2>
-          <p>
-            On this platform, you can submit your feature requests via email. Our AI system will automatically generate a ticket with a deadline and
-            priority level.
-          </p>
-          <p>
-            A total of 10 requests can be created per day. After this limit, emails can still be sent, but they will be manually reviewed by our team
-            instead of generating AI tickets.
-          </p>
-          <a href="mailto:tdori2909@gmail.com"><button class="create-email-request-btn">Create Email Request</button></a>
+          <h2 class="stake-text-title" id="stake-text-title">Easily create a ticket by sending an email — no extra steps needed.</h2>
+          <div id="stake-text-content">
+            <p>
+              On this platform, you can submit your feature requests via email. Our AI system will automatically generate a ticket with a deadline and
+              priority level.
+            </p>
+            <p>
+              A total of 10 requests can be created per day. After this limit, emails can still be sent, but they will be manually reviewed by our
+              team instead of generating AI tickets.
+            </p>
+          </div>
+          <a href="mailto:tdori2909@gmail.com"
+            ><button class="create-email-request-btn">
+              <p id="create-email-request-btn-text">Create Email Request</p>
+              <img id="create-email-request-btn-img" src="./assets/icons/check-email-request.svg" alt="Check Icon" /></button
+          ></a>
         </div>
-        <img class="stake-img" src="./assets/img/board-stake.png" alt="Board With Stakeholder" />
+        <img id="stake-img" class="stake-img" src="./assets/img/board-stake.png" alt="Board With Stakeholder" />
       </div>
     </main>
     <footer class="footer-stakeholder">
       <a href="./privacy-policy.html"><p>Privacy Policy</p></a>
       <a href="./legal-notice.html"><p>Legal Notice</p></a>
     </footer>
-    <script src="./js/stakeholder.js"></script>
     <script src="./js/global.js"></script>
+    <script src="./js/stakeholder.js"></script>
   </body>
 </html>

@@ -28,7 +28,7 @@ header > img {
 
 h1 {
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 900;
   margin: 0;
 }
 
@@ -52,10 +52,32 @@ main {
   justify-content: center;
 }
 
+.stakeholder-loading-msg {
+  display: none;
+  margin: 12px 0 8px;
+  font-size: 16px;
+  color: #7a8699;
+}
+
+body.stakeholder-loading .stakeholder-loading-msg {
+  display: block;
+}
+
+/* Hide main content until usage is known — avoids flashing the wrong UI */
+body.stakeholder-loading .stake-content {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
 .stake-content {
   display: flex;
   gap: 70px;
   padding: 30px 50px 0px 50px;
+}
+
+.stake-text-title {
+  font-weight: 400;
 }
 
 .stake-img {
@@ -65,18 +87,38 @@ main {
 .stake-text {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   align-items: start;
   text-align: justify;
+}
+
+.stake-text > p {
+  margin: 0;
+}
+
+.stake-content .stake-text > a {
+  text-decoration: none;
 }
 
 .create-email-request-btn {
   background-color: #29abe2;
   border: none;
-  padding: 10px 20px;
+  padding: 0px 10px;
   border-radius: 8px;
   cursor: pointer;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+}
+
+#create-email-request-btn-img {
+  width: 30px;
+  height: 30px;
 }
 
 .footer-stakeholder {
