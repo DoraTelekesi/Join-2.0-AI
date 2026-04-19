@@ -187,18 +187,42 @@ function goToSummary() {
 
 window.addEventListener("load", () => {
   const greeting = document.querySelector(".greeting");
-  //const useWhiteLogos = window.matchMedia("(max-width: 500px)").matches;
   const logo = document.querySelector(".greeting-logo-white-resp");
   const targetLogo = document.querySelector(".join-header-logo-white-resp");
-  const targetRect = targetLogo.getBoundingClientRect();
-  const logoRect = logo.getBoundingClientRect();
-  const deltaX = targetRect.left + targetRect.width / 2 - (logoRect.left + logoRect.width / 2);
-  const deltaY = targetRect.top + targetRect.height / 2 - (logoRect.top + logoRect.height / 2);
-  const scale = targetRect.width / logoRect.width;
+  if (!greeting || !logo || !targetLogo) return;
 
-  setTimeout(() => {
-    logo.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${scale})`;
-  }, 300);
+  const waitForImageReady = async (img) => {
+    if (img.complete && img.naturalWidth > 0) return;
+    if (typeof img.decode === "function") {
+      try {
+        await img.decode();
+        return;
+      } catch (error) {}
+    }
+    await new Promise((resolve) => img.addEventListener("load", resolve, { once: true }));
+  };
+
+  const startLogoAnimation = () => {
+    const targetRect = targetLogo.getBoundingClientRect();
+    const logoRect = logo.getBoundingClientRect();
+    const deltaX = targetRect.left + targetRect.width / 2 - (logoRect.left + logoRect.width / 2);
+    const deltaY = targetRect.top + targetRect.height / 2 - (logoRect.top + logoRect.height / 2);
+    const scale = targetRect.width / logoRect.width;
+    logo.style.transform = `translate(-50%, -50%) translate(${deltaX}px, ${deltaY}px) scale(${scale})`;
+  };
+
+  const prepareAndStartAnimation = async () => {
+    await Promise.all([waitForImageReady(logo), waitForImageReady(targetLogo)]);
+    const startRect = logo.getBoundingClientRect();
+    const startCenterX = startRect.left + startRect.width / 2;
+    const startCenterY = startRect.top + startRect.height / 2;
+    logo.style.top = `${startCenterY}px`;
+    logo.style.left = `${startCenterX}px`;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(startLogoAnimation);
+    });
+  };
+  prepareAndStartAnimation();
 
   setTimeout(() => {
     greeting.classList.add("hide");
