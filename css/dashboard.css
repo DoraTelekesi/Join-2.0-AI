@@ -277,12 +277,18 @@ svg {
   }
 }
 
+@media (max-width: 650px) {
+  .number {
+    font-size: 30px;
+  }
+}
+
 @media (max-width: 500px) {
-  .summary-user-header h1 {
+  h1 {
     font-size: 48px;
   }
 
-  .summary-user-header h2 {
+  h2 {
     font-size: 18px;
   }
 
@@ -307,5 +313,30 @@ svg {
 
   .number {
     font-size: 32px;
+  }
+  .icon-urgent,
+  .icon {
+    width: 35px;
+    height: 35px;
+  }
+  .size-6 {
+    width: 16px;
+    height: 16px;
+  }
+
+  .card.wide {
+    width: 200px;
+    padding: 5px;
+  }
+
+  .number {
+    font-size: 22px;
+  }
+
+  .dashboard-span {
+    margin: 0 5px 0 5px;
+  }
+  .label {
+    font-size: 15px;
   }
 }

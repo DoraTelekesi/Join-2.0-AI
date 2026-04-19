@@ -77,7 +77,6 @@ async function updateSubtaskStatus(taskId, subtaskTitle, index) {
  * @returns {string} The sanitized string.
  */
 function sanitizeId(str) {
-  console.log(str);
   return str.replace(/[^a-zA-Z0-9-_]/g, "-");
 }
 
@@ -90,7 +89,6 @@ let taskToDelete = null;
  */
 function updateCheckboxSubtask(subtask, subtaskStatus, index) {
   const sanitizedId = `checkbox-subtask-${sanitizeId(subtask.title)}-${index}`;
-  console.log(sanitizedId);
   const checkbox = document.getElementById(sanitizedId);
   if (checkbox) {
     checkbox.src = subtaskStatus === "done" ? "./assets/icons/btn-checked-blue.svg" : "./assets/icons/btn-unchecked.svg";

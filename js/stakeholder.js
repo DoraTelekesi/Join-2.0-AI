@@ -32,7 +32,6 @@ async function getUsageData() {
  * @param {Object} usageData - The usage data to update.
  */
 function updateUsageData(usageData) {
-  console.log(usageData.dailyAiRequestsUsed);
   document.getElementById("used-requests").textContent = usageData.dailyAiRequestsUsed;
 }
 

@@ -4,9 +4,11 @@
 
 let userData = {};
 let usersArr = [];
+let loginRevealed = false;
 
 function init() {
   getUsersFromDatabase();
+  loginRevealed = false;
   // loadLoginInfo("whoIsLoggedIn");
   // putLoginInfo("whoIsLoggedIn", { isGuestLoggedIn: false, userLoggedIn: { name: "", avatar: "" } });
 }
@@ -78,7 +80,7 @@ async function processLogin() {
         name: filteredUser[0].user.name,
         avatar: filteredUser[0].user.avatar,
       },
-    })
+    }),
   );
 }
 
@@ -185,9 +187,9 @@ function goToSummary() {
 
 window.addEventListener("load", () => {
   const greeting = document.querySelector(".greeting");
-  const useWhiteLogos = window.matchMedia("(max-width: 500px)").matches;
-  const logo = document.querySelector(useWhiteLogos ? ".greeting-logo-white-resp" : ".greeting-logo");
-  const targetLogo = document.querySelector(useWhiteLogos ? ".join-header-logo-white-resp" : ".join-header-logo");
+  //const useWhiteLogos = window.matchMedia("(max-width: 500px)").matches;
+  const logo = document.querySelector(".greeting-logo-white-resp");
+  const targetLogo = document.querySelector(".join-header-logo-white-resp");
   const targetRect = targetLogo.getBoundingClientRect();
   const logoRect = logo.getBoundingClientRect();
   const deltaX = targetRect.left + targetRect.width / 2 - (logoRect.left + logoRect.width / 2);
@@ -203,8 +205,20 @@ window.addEventListener("load", () => {
   }, 1300);
 });
 
-
+/**
+ * Reveals the login form and swaps the logos.
+ */
 function revealLogin() {
   const memberLogin = document.getElementById("choose-role");
   memberLogin.classList.add("hide");
+  loginRevealed = true;
+  swapLogos();
+}
+
+/**
+ * Swaps the logos to blue.
+ */
+function swapLogos() {
+  const whiteLogo = document.querySelector(".join-header-logo-white-resp");
+  whiteLogo.classList.add("hide-white-logo");
 }

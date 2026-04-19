@@ -7,13 +7,16 @@
   background-color: #f6f7f8;
   height: 100%;
 }
+
 main {
   display: flex;
   align-items: center;
 }
+
 h1 {
   font-size: 61px;
 }
+
 .header-login {
   width: 90%;
   display: flex;
@@ -30,15 +33,19 @@ h1 {
 
 .join-header-logo {
   position: absolute;
+  width: 64px;
+  height: 78px;
 }
 
 .join-header-logo-white-resp {
   position: fixed;
   z-index: 9999;
 }
+
 .footer-login-signup {
   display: none;
 }
+
 .header-login-signup {
   height: 130px;
   display: flex;
@@ -86,9 +93,11 @@ h1 {
     background-color 0.25s,
     box-shadow 0.25s;
 }
+
 .login-btns {
   display: flex;
 }
+
 .login-inputs {
   display: flex;
   flex-direction: column;
@@ -186,6 +195,7 @@ input:-ms-input-placeholder {
     background-color 0.25s,
     box-shadow 0.25s;
 }
+
 .guest-login-btn {
   display: flex;
   align-items: center;
@@ -211,6 +221,7 @@ input:-ms-input-placeholder {
   height: 130px;
   display: flex;
 }
+
 .footer-content {
   font-size: 16px;
   padding: 20px;
@@ -236,6 +247,7 @@ main {
   color: #29abe2;
   font-weight: 700;
 }
+
 .footer-btns {
   width: 100%;
   display: flex;
@@ -318,9 +330,11 @@ main {
   font-size: 32px;
   font-weight: 900;
 }
+
 .welcome-text p {
   font-size: 20px;
 }
+
 .separator {
   width: 20%;
   height: 2px;
@@ -384,11 +398,28 @@ button {
   gap: 10px;
 }
 
-.hide {
+.greeting-logo-white-resp,
+.join-header-logo-white-resp {
   display: none;
 }
 
 .greeting-logo-white-resp,
 .join-header-logo-white-resp {
+  display: block;
+}
+
+.greeting-logo {
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+
+.greeting {
+  background-color: #2a3647;
+}
+
+.hide-white-logo {
   display: none;
 }

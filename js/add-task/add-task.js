@@ -11,7 +11,6 @@ async function init() {
   await showLoggedInInfo();
   selectPrio("medium");
   highlightMenuActual();
-  console.log(contacts)
 }
 
 /**
@@ -183,12 +182,29 @@ function createTaskObject(id) {
     priority: selectedPrio,
     subtasks: getSubtasks(),
     title: getTitleInput(),
-    creatorName: user.name,
+    creatorName: getCreatorName(),
   };
 }
 
+function getCreatorName() {
+  if (checkIfGuest()) {
+    return "Guest";
+  } else {
+    return user.name;
+  }
+}
+
 function checkIfMember(name) {
-  if (contacts.some((contact) => contact.name === name)) {
+  if (contacts.some((contact) => contact.name === name) || checkIfGuest()) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function checkIfGuest() {
+  const userInLocalStorage = JSON.parse(localStorage.getItem("loginInfo"));
+  if (userInLocalStorage.name === "Guest") {
     return true;
   } else {
     return false;
